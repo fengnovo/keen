@@ -1,14 +1,25 @@
 {
   "name": "keen",
-  "version": "1.0.0",
-  "author": "reco_luan",
+  "version": "0.1.0",
+  "description": "Awesome vercel apps.",
+  "keywords": [
+    "keen",
+    "serverless",
+    "lambda",
+    "api"
+  ],
+  "repository": "fengnovo/keen",
+  "license": "MIT",
+  "author": "fengnovo (https://github.com/fengnovo)",
   "scripts": {
-    "dev": "vuepress dev . --open --host \"localhost\"",
-    "build": "vuepress build ."
+    "lint": "ts-standard --fix",
+    "start": "npx vercel dev"
+  },
+  "dependencies": {
+    "got": "11.8.2"
   },
   "devDependencies": {
-    "vuepress": "1.8.2",
-    "vuepress-theme-reco": "1.6.10"
-  },
-  "description": ""
+    "@vercel/node": "1.12.1",
+    "ts-standard": "10.0.0"
+  }
 }

@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serverless</title>
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/minima.css">
+  <style>
+    .site-header { padding-top: 2.0rem; border-bottom: 1px solid #eee; }
+    .site-main > section { margin-top: 5rem; }
+    .site-footer { padding: 2.5rem 0; border-top: 1px solid #eee; }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Serverless</h1>
+    </div>
+  </header>
+
+  <main class="site-main">
+
+    <section class="container">
+      <h2>Endpoints</h2>
+      <h3>GET <code>/index</code></h3>
+      <p>Get user's repositories.</p>
+      <pre><code>$ curl http://localhost:3000/index?owner=fengnovo</code></pre>
+      <h4>Params</h4>
+      <ul>
+        <li><code>owner</code>: github user or organization name, alias: <code>username</code></li>
+      </ul>
+      <h4>Response Type</h4>
+      <pre><code>interface Template {
+  name: string
+  owner: string
+  fullname: string
+  description: string
+  updated: string
+}
+
+type Result = Template[]</code></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="container">
+      This service is Hosted on <a href="https://vercel.com">Vercel</a>.&nbsp;&nbsp;
+    </p>
+  </footer>
+</body>
+
+</html>
