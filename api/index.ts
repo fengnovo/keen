@@ -27,7 +27,7 @@ const fetchAllRepos = (owner: string): AsyncIterableIterator<Repository> => {
 }
 
 export default async (req: VercelRequest, res: VercelResponse): Promise<void> => {
-  const owner = req.query.owner ?? req.query.username ?? 'caz-templates'
+  const owner = (req.query.owner ?? req.query.username) ? (req.query.owner ?? req.query.username) : process.env.un as string
   console.log('req.query.owner---', req.query.owner);
   console.log('req.query.username---', req.query.username);
   console.log('owner---', owner);
