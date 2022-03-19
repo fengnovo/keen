@@ -41,6 +41,8 @@
 }
 
 type Result = Template[]</code></pre>
+      <button id="login">登陆 GitHub</button>
+      <br />
     </section>
   </main>
 
@@ -50,5 +52,14 @@ type Result = Template[]</code></pre>
     </p>
   </footer>
 </body>
+<script>
+  const client_id = '32513ac8fbaf41517cf5';
 
+  const authorize_uri = 'https://github.com/login/oauth/authorize';
+  const redirect_uri = 'http://localhost:3000/oauth/redirect';
+
+  document.querySelector('#login').addEventListener('click', function() {
+    window.location.href = `${authorize_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  });
+</script>
 </html>

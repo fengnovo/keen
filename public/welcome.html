@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>OAuth2.0</title>
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/minima.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>OAuth2.0</h1>
+    </div>
+  </header>
+
+  <main class="site-main">
+
+    <section class="container">
+      <pre><code id="result"></code></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="container">
+      This service is Hosted on <a href="https://vercel.com">Vercel</a>.&nbsp;&nbsp;
+    </p>
+  </footer>
+</body>
+<script>
+  function syntaxHighlight(json) {
+    if (typeof json != 'string') {
+        json = JSON.stringify(json, undefined, 2);
+    }
+    json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+}
+  var query = window.location.search.substring(1) || '';
+  var data = query.split('oauthData=')[1];
+  data = JSON.stringify(JSON.parse(decodeURIComponent(data)), null, 2)
+  document.querySelector('#result').appendChild(
+    document.createTextNode(data)
+  );
+</script>
+
+</html>

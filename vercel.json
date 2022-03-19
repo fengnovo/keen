@@ -1,5 +1,6 @@
 {
     "rewrites": [
+      { "source": "/oauth/redirect", "destination": "/api/auth" },
       { "source": "/:endpoint*", "destination": "/api/:endpoint*" }
     ]
 }

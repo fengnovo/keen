@@ -16,7 +16,8 @@
     "start": "npx vercel dev"
   },
   "dependencies": {
-    "got": "11.8.2"
+    "got": "11.8.2",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "@vercel/node": "1.12.1",
